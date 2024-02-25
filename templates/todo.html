@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+    
+<body>
+    <h1>Todo List</h1>
+    <form action="/add" method="post">
+        <input type="text" name="todo" required>
+        <button type="submit">Add Todo</button>
+    </form>
+    <br><br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Todo</th>
+            <th>Actions</th>
+        </tr>
+        {% for todo in todos %}
+            <tr>
+                <td>{{ todo[0] }}</td>
+                <td>
+                    <form action="/update/{{ todo[0] }}" method="post">
+                        <input type="text" name="new_todo" value="{{ todo[1] }}" required>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="/delete/{{ todo[0] }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    
+</body>
+</html>
+
