@@ -8,17 +8,21 @@
             border-collapse: collapse;
         }
         th, td {
-            border: 1px solid black;
+            border: 1px solid rgb(237, 31, 31);
             padding: 8px;
             text-align: left;
         }
         th {
             background-color: #f2f2f2;
         }
+        h2{
+            background-color: aqua;
+        }
     </style>
 </head>
     
 <body>
+    <center><h2>Welcome to your TODO!</h2></center>
     <h1>Todo List</h1>
     <form action="/add" method="post">
         <input type="text" name="todo" required>
